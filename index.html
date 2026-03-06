@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>개발자 포트폴리오</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Space+Mono:wght@400;700&family=Bebas+Neue&family=IBM+Plex+Sans+KR:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+<script>
+/* ================================================================
+   ✏️  여기만 수정하면 포트폴리오 전체 내용이 바뀝니다!
+   ================================================================ */
+
+const DATA = {
+
+  /* ── 기본 정보 ── */
+  name:     "김병주",
+  initials: "HG",          // 프로필 이미지 대신 표시되는 이니셜
+  role:     "Client Programmer",
+  intro:    `<strong>모바일 게임 클라이언트 개발</strong>을 전문으로 하였으며 2D/3D 가리지 않고 다양한 장르(MMORPG·RPG·액션 등)의 게임 개발 및 라이브 서비스를 경험했습니다.
+콘텐츠 구현부터 아트팀 지원 툴 개발, 빌드 자동화, 보안 적용까지 폭넓게 수행하였으며,
+현재 <strong>블루포션게임즈에서 에오스 블랙 국내 인기 순위 3위를 달성</strong>하는 데 기여한 클라이언트 프로그래머입니다.`,
+
+  /* ── 연락처 ── */
+  contact: {
+    phone:    "010-4690-8035",
+    email:    "doyouwany@email.com",
+    location: "서울특별시",    
+  },
+
+  /* ── 학력사항 ── */
+  // badge: "grad"(졸업) | "curr"(재학/재직) | "drop"(중퇴)
+  education: [    
+    {
+      period: "2008.03 — 2014.02",
+      type:   "대학교",
+      badge:  "grad",
+      status: "졸업",
+      school: "경상대학교",
+      major:  "컴퓨터과학과",
+      desc:   "공학인증 완료",
+    },
+    {
+      period: "2005.03 — 2008.02",
+      type:   "고등학교",
+      badge:  "grad",
+      status: "졸업",
+      school: "마산제일고등학교",
+      major:  "이과",
+      desc:   "",
+    },
+  ],
+
+  /* ── 경력사항 ── */
+  experience: [
+    /*{
+      company: "블루포션게임즈",
+      period:  "2022.12 — 재직중",
+      projects: [
+        {
+          title:   "카카오뱅크 인앱 챗봇 빌더 개발",
+          period:  "2025.01 — 2025.09 · SI 프로젝트",
+          tasks:   [
+            "챗봇 빌더 개발 및 마이그레이션",
+            "채널서버와 스킬서버간 봇 빌더 개발 및 구축",
+            "RestAPI 기반 자사 솔루션 연동 API 모듈 개발",
+            "인앱 챗봇 관리도구 화면 개발 (오류/답변/엔티티/버전관리 메뉴)",
+          ],
+          results: [
+            "고객 요구사항에 맞춰 봇빌더 RestAPI 모듈 개발 및 요구사항 충족",
+            "인입 데이터를 관리할 수 있는 관리도구 화면 개발 완료",
+          ],
+          skills:  ["Java", "Vue.js", "Spring Boot", "PostgreSQL", "MyBatis", "JPA"],
+        },
+        {
+          title:   "솔루션 고도화 및 신규 기능 개발",
+          period:  "2024.07 — 2024.12",
+          tasks:   [
+            "솔루션 신규 기능 프론트엔드 & 백엔드 개발 참여",
+            "Oracle 쿼리 관련 이슈 대응",
+            "GS 인증을 위한 SonarQube 코드 리팩토링 (약 6,000건)",
+          ],
+          results: [],
+          skills:  ["Java", "Vue.js", "Spring Boot", "Oracle", "Jenkins"],
+        },
+      ],
+    },
+    */
+    {
+      company: "블루포션게임즈",
+      period:  "2022.12 — 재직중",
+      projects: [
+        {
+          title:   "에오스 블랙(모바일 MMORPG)",
+          period:  "2022.12 — 현재",
+          tasks:   [
+            "창고, NPC상점, 캐쉬상점, 아이템 제작, 삭제, 분해, 아이템 획득처 구현",
+            "탈것, 다시 뽑기, 뽑기 연출, 동영상/사운드 재생관련 구현",
+            "길드 결속의 탑, 정예 던전, 선박 시스템, 크로스월드 시스템, 이벤트 버프, 은신 스킬 구현",
+            "아트팀 지원 툴(Vertex개수 분포도 확인툴, 터레인 분할 툴, BoxCollider 분할 툴) 제작",
+            "라이브 서비스 관련 보안 툴(GPresto, XIGNCODE) 적용, Window PC 어플리케이션 서명 업무"
+          ],
+          results: [
+            "에오스 블랙 국내 출시 및 최고 인기 순위 3위 달성",
+            "에오스 블랙 대만 런칭 완료",
+          ],
+          skills:  ["UnityEngine", "UGUI", "Jenkins", "SQLite"],
+        },        
+      ],
+    },
+    {
+      company: "Softnyx",
+      period:  "2018.01 — 2021.10",
+      projects: [
+        {
+          title:   "킹덤스토리 (모바일 2D 수집형 RPG)",
+          period:  "2018.01 — 2021.10",
+          tasks:   [
+            "라이브 서비스 진행 중인 프로젝트에 투입 되었으며 다양한 콘텐츠 및 UI 구현으로 시작",
+            "신규 전투 스킬 구현, 팀 업무 효율 증대를 위한 툴 개선",
+            "Jenkins 및 Python언어를 이용한 빌드 자동화 업무",
+            "킹덤스토리 라이브 관련 모든 클라이언트 업무을 진행할 수 있는 팀장 역할 수행",
+          ],
+          results: [],
+          skills:  ["UnityEngine", "NGUI", "Jenkins", "Python"],
+        },
+      ],
+    },    
+    {
+      company: "DigitalFrog",
+      period:  "2015.09 — 2016.07",
+      projects: [
+        {
+          title:   "3Heroes (모바일 3D 벨트스크롤 RPG)",
+          period:  "2015.09 — 2016.07",
+          tasks:   [
+            "NGUI 및 Playmaker를 이용하여 UI 업무와 버그 해결",
+            "최적화, 프로파일링, iOS 빌드 업무",
+          ],
+          results: [],
+          skills:  ["UnityEngine", "NGUI", "Playmaker"],
+        },
+      ],
+    },
+  ],
+
+  /* ── 자격증 ── */
+  certificates: [
+    { name: "자동차운전면허",   issuer: "경북지방경찰청",  date: "2008.03" },    
+  ],
+
+  /* ── 교육이수 ── */
+  curriculum: [
+    {
+      period: "2014.09 — 2015.09",
+      type:   "국비",
+      school: "서울게임아카데미",
+      org:    "게임 프로그래밍과정",
+      desc:   "Windows API, C++, DirectX 3D 등으로 게임 구현",
+    },
+    /*{
+      period: "2023.05 — 2023.10",
+      type:   "국가과정",
+      school: "KOSTA 한국소프트웨어진흥협회",
+      org:    "국가인적자원개발컨소시엄",
+      desc:   "Java 기반 DevOps개발자 양성과정",
+    },
+    {
+      period: "2022.09 — 2023.01",
+      type:   "국비",
+      school: "KFQ 한국품질재단",
+      org:    "광명시 취업훈련과정 · 576H",
+      desc:   "빅데이터 플랫폼을 활용한 실무형 서비스개발자 양성과정",
+    },
+    {
+      period: "2020.04 — 2020.10",
+      type:   "국비",
+      school: "KG ITBANK",
+      org:    "고용노동부 국비훈련과정 · 800H",
+      desc:   "프레임워크 기반 자바 웹개발자 양성과정 (JAVA, JSP, Spring, 웹프로그램 등)",
+    },
+    */
+  ],
+
+  /* ── 기술 스택 ── */
+  // color: 기술 로고 색상
+  skills: [
+    {
+      group: "Language",
+      items: [
+        { name: "C#",      color: "#e34f26" },
+        { name: "C/C++",       color: "#1572b6" },
+        { name: "DirectX 3D",  color: "#7952b3" },
+        { name: "Win API",        color: "#c9a800" },
+        { name: "Java",     color: "#0769ad" },
+        { name: "Python",      color: "#6db33f" },
+        { name: "PHP",     color: "#42b883" },
+        { name: "MFC",      color: "#149eca" },
+      ],
+    },
+    /*{
+      group: "Backend",
+      items: [
+        { name: "Java 8 / 11",      color: "#007396" },
+        { name: "Spring Framework", color: "#6db33f" },
+        { name: "Spring Boot",      color: "#6db33f" },
+        { name: "Spring MVC",       color: "#6db33f" },
+        { name: "Spring Data JPA",  color: "#6db33f" },
+        { name: "Hibernate",        color: "#59666c" },
+        { name: "Thymeleaf",        color: "#005f0f" },
+      ],
+    },
+    */
+    {
+      group: "Database",
+      items: [
+        { name: "SQLite",     color: "#6db33f" },
+        { name: "MySQL",      color: "#4479a1" },
+        /*{ name: "PostgreSQL", color: "#336791" },*/
+      ],
+    },
+    {
+      group: "DevOps / Tools",
+      items: [
+        { name: "Git/SVN",             color: "#f05032" },
+        { name: "UnityEngine",             color: "#809cc9" },
+        { name: "UnrealEngine",         color: "#d24939" },
+        { name: "Spine",       color: "#336791" },
+        { name: "XCode",             color: "#555555" },
+        { name: "Eclipse",          color: "#6db33f" },
+        { name: "Gradle",          color: "#02303a" },
+        { name: "Jenkins",           color: "#005f0f" },
+      ],
+    },
+  ],
+
+  /* ── 팀 프로젝트 ── */
+  // link: 없으면 빈 문자열 ""
+  projects: [
+    /*{
+      title:  "Team Project Ⅱ · FlowerPot",
+      sub:    "화장품 분석 플랫폼",
+      link:   "https://yoohyeok.github.io/TPFPA/",
+      period: "Jul 2020 — Oct 2020",
+      desc:   `화장품 분석 앱 <b>'화해'</b>를 모티브로 화장품 분석 및 판매 서비스를 기획하였으며,
+  <b>'아이디어스'</b>를 참고하여 권한이 있는 회원이라면 누구나 매거진을 작성할 수 있는 SNS형 커뮤니케이션 서비스를 추가하였습니다.`,
+      env:    ["Java JDK 1.8", "Spring Framework", "JSP", "Oracle 18C", "jQuery & Ajax"],
+      tools:  ["Git / GitHub", "Bootstrap", "Daum 주소 API", "배송조회 API"],
+    },
+    */
+    {
+      title:  "Arnee",
+      sub:    "2D 횡스크롤 플랫포머 어드밴처(모바일)",
+      link:   "https://youtu.be/9Y8hF94ClQc",
+      period: "2017.07 — 2017.12",
+      desc:   `&nbsp기획자 1명, 그래픽 디자이너 4명, 프로그래머 1명으로 구성된 팀의 작업물입니다.<br>
+프로그래밍 부분은 전적으로 혼자 진행하였으며 케릭터 (조이패드 이동 및 공격, 점프, 구르기 등), 몬스터, 다양한 함정, 스킬 시스템, 업적 시스템, <br>
+UGUI를 이용한 UI 구성, 로딩 씬 등을 구현하였고, 각종 매니저 (ObjectPool, SoundManager, Attack Box Colider Maker, Buff, Particle 등)를 구현하였습니다.<br>
+애니메이션은 <b>Spine</b>을 이용하여 제작하였습니다. <br>
+간단해 보이는 <b>2D 횡스크롤 플랫포머 게임</b>이지만 기본적인 RPG적인 요소가 가미되어 있어 <b>RPG게임</b>의 전투 시스템을 포함하고 있습니다.<br>
+Json을 이용한 파일 입출력으로 게임 데이터 저장, 텍스트의 Language Localization, 스킬의 수치 등을 조절할 수 있게 구현하였습니다. (JsonUtility 사용)<br>
+총 1-6 스테이지 구성 및 첫 스테이지 보스까지 구현 하였고 <b>출시 프로모션 영상 및 APK 빌드까지 완료</b>하였습니다.<br>`,
+      env:    ["C#", "UGUI", "TextMesh Pro", "DOTween", "Spine"],
+      tools:  ["Git", "UnityEngine", "Visual Studio"],
+    },    
+    {
+      title:  "진의 모험",
+      sub:    "3D 액션 RPG",
+      link:   "https://youtu.be/DiStz0RbxLU",
+      period: "2015.06 — 2015.08",
+      desc:   `&nbsp게임 아카데미에서 진행한 팀 프로젝트로 제가 팀장으로 진행하였고 팀원들의 사정 상 제가 프로젝트의 95% 이상 작업하였습니다.<br>
+<b>논 타겟형 액션 RPG</b>이며 기본 3타 공격 및 스킬 3가지 구현, 여러 종류의 몬스터(근거리, 원거리), 여러 패턴을 가진 <b>보스까지 구현 완료</b>하였습니다.<br>
+시중에 나와있는 엔진을 사용하여 게임을 제작한 것이 아닌 직접 랜더링 파이프 라인을 이해하고 vertex들을 이용하여 삼각형을 그리고 모델링을 띄우고 하는 작업부터 시작하여 게임을 제작하였습니다.<br>
+Xfile을 이용한 Skinned Mesh 구현, RenderMonkey를 이용한 쉐이더 적용, RawFile, Height Map을 이용한 맵 구현, 파티클, 빌보드를 이용한 체력바 구현, 간단한 UI, 퀘스트 구현 등을 하였습니다.`,
+      env:    ["DirextX 3D"],
+      tools:  ["SVN", "Visual Studio", "RenderMonkey"],
+    },    
+  ],
+
+  /* ── 관심사 표시 여부 ── */
+  // true → 섹션 표시 | false → 섹션 + 네비 항목 모두 숨김
+  showInterests: false,
+
+  /* ── 관심사 ── */
+  interestsText: `개발자가 되는 것 외에 <strong>재즈 피아노 연주</strong>와 <strong>노래 카피</strong>를 즐겨 하며,
+따뜻한 계절에는 <strong>자전거</strong> 타는 것을 즐깁니다.
+여가 시간에는 <strong>R&amp;B 음악</strong>을 주로 듣고,
+<strong>백엔드 웹 개발 세계의 최신 기술 발전을 탐구</strong>하는 데 많은 시간을 할애합니다.`,
+
+  // icon: 이모지, label: 표시 이름
+  hobbies: [
+    { icon: "🎹", label: "재즈 피아노" },
+    { icon: "🎵", label: "음악 카피"   },
+    { icon: "🚲", label: "자전거" },
+    { icon: "🎧", label: "R&B 감상"   },
+    { icon: "💻", label: "신기술 탐구" },
+    { icon: "📚", label: "기술 학습"   },
+  ],
+
+};
+
+/* ================================================================
+   🎨  색상 테마 (포인트 컬러 등 변경 시 여기만 수정)
+   ================================================================ */
+const THEME = {
+  bg:      "#faf9f7",   // 전체 배경 (크림)
+  surface: "#ffffff",   // 카드/사이드바 배경
+  surface2:"#f2f0ec",   // 보조 배경
+  border:  "#d8d3c8",   // 테두리
+  accent:  "#3730a3",   // 포인트 색 (제목·링크·뱃지)
+  accent2: "#4f46e5",   // 보조 포인트 색
+  text:    "#1c1917",   // 주요 본문 텍스트
+  sub:     "#44403c",   // 보조 본문 텍스트
+  muted:   "#57534e",   // 흐린 텍스트 (날짜·라벨)
+};
+
+/* ================================================================
+   ⚙️  아래는 렌더링 엔진입니다. 수정 불필요합니다.
+   ================================================================ */
+
+// CSS 주입
+document.head.insertAdjacentHTML('beforeend', `<style>
+:root {
+  --bg:${THEME.bg};--surface:${THEME.surface};--surface2:${THEME.surface2};
+  --border:${THEME.border};--accent:${THEME.accent};--accent2:${THEME.accent2};
+  --text:${THEME.text};--sub:${THEME.sub};--muted:${THEME.muted};--nav-w:260px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh}
+nav{position:fixed;top:0;left:0;width:var(--nav-w);height:100vh;background:var(--surface);border-right:1px solid var(--border);box-shadow:2px 0 12px rgba(28,25,23,.08);display:flex;flex-direction:column;padding:40px 0;z-index:100;overflow-y:auto}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:4px;color:var(--accent);padding:0 32px 32px;border-bottom:1px solid var(--border);line-height:1}
+.nav-logo span{display:block;font-family:'Noto Sans KR',sans-serif;font-size:.65rem;font-weight:300;color:var(--muted);letter-spacing:2px;margin-top:4px}
+.nav-links{list-style:none;padding:24px 0;flex:1}
+.nav-links li a{display:flex;align-items:center;gap:12px;padding:12px 32px;color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color .2s,background .2s;border-left:2px solid transparent}
+.nav-links li a:hover,.nav-links li a.active{color:var(--accent);background:rgba(55,48,163,.07);border-left-color:var(--accent)}
+.nav-links li a .dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.nav-contact{padding:24px 32px 0;border-top:1px solid var(--border);font-size:.72rem;color:var(--muted);line-height:1.8}
+.nav-contact a{color:var(--accent2);text-decoration:none}
+main{margin-left:var(--nav-w);flex:1;padding:0 60px;max-width:calc(100% - var(--nav-w))}
+section{min-height:100vh;padding:100px 0 80px;border-bottom:1px solid var(--border)}
+.sec-label{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:4px;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+h2.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,4.5rem);letter-spacing:3px;line-height:1;color:var(--text);margin-bottom:48px}
+#about{display:flex;flex-direction:column;justify-content:center}
+.about-hero{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:start;margin-bottom:48px}
+.about-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.0rem,7vw,6rem);letter-spacing:6px;line-height:.9;color:var(--text)}
+.about-name .hl{color:var(--accent)}
+.about-role{font-size:.9rem;color:var(--accent2);letter-spacing:3px;text-transform:uppercase;margin:16px 0 24px;font-weight:300}
+.about-desc{font-size:.96rem;line-height:2;color:var(--sub);max-width:600px}
+.about-desc strong{color:var(--accent);font-weight:500}
+.avatar-wrap{width:200px;height:200px;border-radius:4px;overflow:hidden;border:2px solid var(--border);flex-shrink:0;background:var(--surface2);display:flex;align-items:center;justify-content:center}
+.avatar-placeholder{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:#c8c4bb;letter-spacing:4px}
+.about-info{display:flex;gap:40px;flex-wrap:wrap;padding-top:32px;border-top:1px solid var(--border)}
+.info-item label{display:block;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;font-family:'Space Mono',monospace}
+.info-item span{font-size:.85rem;color:var(--text)}
+.info-item a{color:var(--accent2);text-decoration:none}
+.timeline{display:flex;flex-direction:column}
+.timeline-item{display:grid;grid-template-columns:180px 1fr;gap:0 32px;position:relative;padding-bottom:48px}
+.timeline-item:last-child{padding-bottom:0}
+.tl-date{text-align:right;padding-top:4px}
+.tl-date .period{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--accent);line-height:1.5}
+.tl-date .type-badge{display:inline-block;margin-top:8px;padding:2px 8px;font-size:.6rem;border-radius:2px;letter-spacing:1px;text-transform:uppercase;background:rgba(55,48,163,.08);color:var(--accent);border:1px solid rgba(55,48,163,.18)}
+.tl-body{border-left:1px solid var(--border);padding-left:32px;position:relative}
+.tl-body::before{content:'';position:absolute;left:-5px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl-body h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.tl-body .org{font-size:.78rem;color:var(--accent2);margin-bottom:8px}
+.tl-body .desc{font-size:.83rem;color:var(--sub);line-height:1.7}
+.status-badge{display:inline-block;padding:2px 8px;font-size:.6rem;border-radius:2px;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase}
+.badge-grad{background:rgba(55,48,163,.08);color:var(--accent);border:1px solid rgba(55,48,163,.18)}
+.badge-curr{background:rgba(79,70,229,.08);color:var(--accent2);border:1px solid rgba(79,70,229,.18)}
+.badge-drop{background:rgba(220,38,38,.08);color:#b91c1c;border:1px solid rgba(220,38,38,.2)}
+.exp-company{margin-bottom:48px}
+.company-header{display:flex;align-items:baseline;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.company-header h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:2px;color:var(--text)}
+.company-period{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--accent)}
+.duration-badge{display:inline-block;padding:2px 8px;font-size:.65rem;font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;font-weight:500;background:rgba(55,48,163,.08);color:var(--accent);border:1px solid rgba(55,48,163,.18);border-radius:20px;vertical-align:middle}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:24px 28px;margin-bottom:16px;box-shadow:0 1px 4px rgba(28,25,23,.07);transition:border-color .2s,transform .2s,box-shadow .2s}
+.project-card:hover{border-color:var(--accent);transform:translateX(4px);box-shadow:0 4px 16px rgba(28,25,23,.10)}
+.project-card h4{font-size:.95rem;font-weight:700;color:var(--accent);margin-bottom:6px}
+.period-small{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted);margin-bottom:16px}
+.task-label{font-size:.78rem;font-weight:600;letter-spacing:.3px;color:var(--accent);font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;margin:16px 0 8px;display:flex;align-items:center;gap:6px}
+.task-label::before{content:'';display:inline-block;width:3px;height:13px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.task-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.task-list li{font-size:.85rem;font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;font-weight:400;color:var(--sub);padding-left:16px;position:relative;line-height:1.8}
+.task-list li::before{content:'·';position:absolute;left:4px;color:var(--accent);font-weight:700;font-size:1.1rem;line-height:1.55}
+.task-label--result{color:var(--accent2)}
+.task-label--result::before{background:var(--accent2)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.skill-tag{padding:3px 10px;font-size:.68rem;font-family:'Space Mono',monospace;border-radius:3px;background:rgba(55,48,163,.07);color:var(--accent);border:1px solid rgba(55,48,163,.18)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px 24px;transition:border-color .2s}
+.cert-card:hover{border-color:var(--accent)}
+.cert-card h4{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.cert-card .issuer{font-size:.72rem;color:var(--muted);margin-bottom:8px}
+.cert-card .date{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--accent)}
+.skills-group{margin-bottom:40px}
+.skills-group-title{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--accent2);margin-bottom:16px}
+.skill-badges{display:flex;flex-wrap:wrap;gap:10px}
+.skill-badge{display:flex;align-items:center;gap:8px;padding:8px 14px;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-size:.8rem;color:var(--text);transition:border-color .2s,background .2s;cursor:default}
+.skill-badge:hover{border-color:var(--accent);background:rgba(55,48,163,.05)}
+.sb-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.project-showcase{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:32px}
+.ps-header{padding:24px 28px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.ps-header h3{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--text)}
+.ps-sub{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted)}
+.ps-link{color:var(--accent2);font-size:.75rem;text-decoration:none;font-family:'Space Mono',monospace;transition:color .2s}
+.ps-link:hover{color:var(--accent)}
+.ps-period{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--accent);padding:16px 28px 0}
+.ps-body{padding:16px 28px 24px}
+.ps-body p{font-size:.86rem;color:var(--sub);line-height:1.85;margin-bottom:20px}
+.ps-body b{color:var(--accent2);font-weight:600}
+.ps-meta{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ps-meta-block h5{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:8px}
+.tag-list{display:flex;flex-wrap:wrap;gap:6px}
+.tag{padding:3px 8px;font-size:.67rem;background:var(--surface2);border:1px solid var(--border);border-radius:2px;color:var(--sub)}
+.interests-text{font-size:.96rem;line-height:2.1;color:var(--sub);max-width:700px;margin-bottom:48px}
+.interests-text strong{color:var(--accent);font-weight:500}
+.hobbies-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hobby-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:32px 24px;text-align:center;transition:border-color .2s,transform .2s}
+.hobby-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.hobby-card .icon{font-size:2rem;margin-bottom:12px}
+.hobby-card h4{font-size:.85rem;color:var(--text)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.contact-single{display:block;max-width:480px}
+.contact-box{padding:40px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+.contact-box h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:3px;color:var(--accent);margin-bottom:24px}
+.contact-row{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start}
+.ci-label{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);width:60px;flex-shrink:0;padding-top:2px}
+.ci-val{font-size:.85rem;color:var(--text)}
+.ci-val a{color:var(--accent2);text-decoration:none}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:6px}
+.form-group input,.form-group textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:10px 14px;color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;resize:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{height:100px}
+.btn-send{width:100%;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:'Space Mono',monospace;transition:background .2s;margin-top:8px}
+.btn-send:hover{background:var(--accent2)}
+.hamburger{display:none;position:fixed;top:16px;left:16px;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:6px;width:40px;height:40px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer}
+.hamburger span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px}
+@media(max-width:900px){
+  :root{--nav-w:0px}
+  .hamburger{display:flex}
+  nav{transform:translateX(-100%);width:260px;transition:transform .3s}
+  nav.open{transform:translateX(0)}
+  main{margin-left:0;padding:0 24px;max-width:100%}
+  .about-hero{grid-template-columns:1fr}
+  .avatar-wrap{display:none}
+  .timeline-item{grid-template-columns:1fr}
+  .tl-date{text-align:left}
+  .ps-meta{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .hobbies-grid{grid-template-columns:1fr 1fr}
+}
+</style>`);
+
+// ── 헬퍼 ────────────────────────────────────────────────────
+const badgeClass = b => b==='grad'?'badge-grad':b==='drop'?'badge-drop':'badge-curr';
+const NAV_ITEMS = [
+  {id:'about',label:'About'},{id:'education',label:'Education'},
+  {id:'experience',label:'Experience'},{id:'certificate',label:'Certificate'},
+  {id:'curriculum',label:'Curriculum'},{id:'skills',label:'Skills'},
+  {id:'projects',label:'Projects'},
+  ...(DATA.showInterests ? [{id:'interests',label:'Interests'}] : []),
+  {id:'contact',label:'Contact'},
+];
+
+// ── HTML 빌드 ────────────────────────────────────────────────
+document.body.innerHTML = `
+<button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+
+<nav id="gnav">
+  <div class="nav-logo">PORTFOLIO<span>DEVELOPER</span></div>
+  <ul class="nav-links">
+    ${NAV_ITEMS.map(s=>`<li><a href="#${s.id}"><span class="dot"></span>${s.label}</a></li>`).join('')}
+  </ul>
+  <div class="nav-contact">
+    <div>TEL. ${DATA.contact.phone}</div>
+    <div>E-mail. <a href="mailto:${DATA.contact.email}">${DATA.contact.email}</a></div>
+  </div>
+</nav>
+
+<main id="mc"></main>`;
+
+const mc = document.getElementById('mc');
+
+// 01 ABOUT
+mc.innerHTML += `<section id="about">
+  <div class="about-hero">
+    <div>
+      <div class="about-name">${DATA.name}<br/><span class="hl"></span></div>
+      <div class="about-role">${DATA.role}</div>
+      <p class="about-desc">${DATA.intro}</p>
+    </div>
+    <div class="avatar-wrap"><div class="avatar-placeholder">${DATA.initials}</div></div>
+  </div>
+  <div class="about-info">
+    <div class="info-item"><label>Phone</label><span>${DATA.contact.phone}</span></div>
+    <div class="info-item"><label>Email</label><span><a href="mailto:${DATA.contact.email}">${DATA.contact.email}</a></span></div>
+    <div class="info-item"><label>Location</label><span>${DATA.contact.location}</span></div>    
+  </div>
+</section>`;
+
+// 02 EDUCATION
+mc.innerHTML += `<section id="education">
+  <h2 class="sec-title">학력사항</h2>
+  <div class="timeline">
+    ${DATA.education.map(e=>`
+    <div class="timeline-item">
+      <div class="tl-date">
+        <div class="period">${e.period.replace(' — ','<br/>—<br/>')}</div>
+        <span class="type-badge">${e.type}</span>
+      </div>
+      <div class="tl-body">
+        <div class="status-badge ${badgeClass(e.badge)}">${e.status}</div>
+        <h3>${e.school}</h3>
+        <div class="org">${e.major}</div>
+        ${e.desc?`<div class="desc">${e.desc}</div>`:''}
+      </div>
+    </div>`).join('')}
+  </div>
+</section>`;
+
+// ── 기간 계산 헬퍼 ──────────────────────────────────────────
+function calcDuration(periodStr) {
+  // "2022.12 — 재직중" 또는 "2018.01 — 2021.10" 형태 파싱
+  const parts = periodStr.split('—').map(s => s.trim());
+  if (parts.length < 2) return '';
+
+  const parseDate = s => {
+    s = s.trim();
+    if (s === '재직중' || s === '현재') return new Date();
+    const [y, m] = s.split('.').map(Number);
+    return new Date(y, (m || 1) - 1, 1);
+  };
+
+  const start = parseDate(parts[0]);
+  const end   = parseDate(parts[1]);
+  if (isNaN(start) || isNaN(end)) return '';
+
+  let months = (end.getFullYear() - start.getFullYear()) * 12
+             + (end.getMonth() - start.getMonth());
+  if (months <= 0) return '';
+
+  const y = Math.floor(months / 12);
+  const m = months % 12;
+
+  if (y > 0 && m > 0) return `${y}년 ${m}개월`;
+  if (y > 0)          return `${y}년`;
+  return `${m}개월`;
+}
+
+// 03 EXPERIENCE
+mc.innerHTML += `<section id="experience">
+  <h2 class="sec-title">경력사항</h2>
+  ${DATA.experience.map(co=>`
+  <div class="exp-company">
+    <div class="company-header">
+      <h3>${co.company}</h3>
+      <span class="company-period">${co.period}&nbsp;&nbsp;<span class="duration-badge">${calcDuration(co.period)}</span></span>
+    </div>
+    ${co.projects.map(pj=>`
+    <div class="project-card">
+      <h4>${pj.title}</h4>
+      <div class="period-small">${pj.period}</div>
+      ${pj.tasks.length?`<div class="task-label">수행업무</div><ul class="task-list">${pj.tasks.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}
+      ${pj.results.length?`<div class="task-label task-label--result">주요성과</div><ul class="task-list">${pj.results.map(r=>`<li>${r}</li>`).join('')}</ul>`:''}
+      <div class="skill-tags">${pj.skills.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>
+    </div>`).join('')}
+  </div>`).join('')}
+</section>`;
+
+// 04 CERTIFICATE
+mc.innerHTML += `<section id="certificate">
+  <h2 class="sec-title">기술 자격증</h2>
+  <div class="cert-grid">
+    ${DATA.certificates.map(c=>`
+    <div class="cert-card">
+      <h4>${c.name}</h4>
+      <div class="issuer">${c.issuer}</div>
+      <div class="date">${c.date}</div>
+    </div>`).join('')}
+  </div>
+</section>`;
+
+// 05 CURRICULUM
+mc.innerHTML += `<section id="curriculum">
+  <h2 class="sec-title">교육이수</h2>
+  <div class="timeline">
+    ${DATA.curriculum.map(c=>`
+    <div class="timeline-item">
+      <div class="tl-date">
+        <div class="period">${c.period.replace(' — ','<br/>—<br/>')}</div>
+        <span class="type-badge">${c.type}</span>
+      </div>
+      <div class="tl-body">
+        <h3>${c.school}</h3>
+        <div class="org">${c.org}</div>
+        <div class="desc">${c.desc}</div>
+      </div>
+    </div>`).join('')}
+  </div>
+</section>`;
+
+// 06 SKILLS
+mc.innerHTML += `<section id="skills">
+  <h2 class="sec-title">기술 스택</h2>
+  ${DATA.skills.map(g=>`
+  <div class="skills-group">
+    <div class="skills-group-title">${g.group}</div>
+    <div class="skill-badges">
+      ${g.items.map(i=>`<div class="skill-badge"><span class="sb-dot" style="background:${i.color}"></span>${i.name}</div>`).join('')}
+    </div>
+  </div>`).join('')}
+</section>`;
+
+// 07 PROJECTS
+mc.innerHTML += `<section id="projects">
+  <h2 class="sec-title">팀 프로젝트</h2>
+  ${DATA.projects.map(p=>`
+  <div class="project-showcase">
+    <div class="ps-header">
+      <h3>${p.title}</h3>
+      ${p.link?`<a href="${p.link}" target="_blank" class="ps-link">☞ 동영상 링크</a>`:`<span class="ps-sub">${p.sub}</span>`}
+    </div>
+    <div class="ps-period">${p.period}</div>
+    <div class="ps-body">
+      <p>${p.desc}</p>
+      <div class="ps-meta">
+        <div class="ps-meta-block"><h5>개발환경</h5><div class="tag-list">${p.env.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>
+        <div class="ps-meta-block"><h5>도구 및 API</h5><div class="tag-list">${p.tools.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>
+      </div>
+    </div>
+  </div>`).join('')}
+</section>`;
+
+// 08 INTERESTS
+if (DATA.showInterests) {
+mc.innerHTML += `<section id="interests">
+  <h2 class="sec-title">관심사</h2>
+  <p class="interests-text">${DATA.interestsText}</p>
+  <div class="hobbies-grid">
+    ${DATA.hobbies.map(h=>`<div class="hobby-card"><div class="icon">${h.icon}</div><h4>${h.label}</h4></div>`).join('')}
+  </div>
+</section>`;
+}
+
+// 09 CONTACT
+mc.innerHTML += `<section id="contact">
+  <h2 class="sec-title">연락처</h2>
+  <div class="contact-single">
+    <div class="contact-box">
+      <h3>Get In Touch</h3>
+      <div class="contact-row"><span class="ci-label">TEL</span><span class="ci-val">${DATA.contact.phone}</span></div>
+      <div class="contact-row"><span class="ci-label">EMAIL</span><span class="ci-val"><a href="mailto:${DATA.contact.email}">${DATA.contact.email}</a></span></div>
+      <div class="contact-row"><span class="ci-label">ADDR</span><span class="ci-val">${DATA.contact.location}</span></div>
+    </div>
+  </div>
+</section>`;
+
+// ── 네비 활성화 ──────────────────────────────────────────────
+function setActive(){
+  const links = document.querySelectorAll('.nav-links a');
+  const secs  = document.querySelectorAll('section');
+  let cur = '';
+  secs.forEach(s=>{ if(window.scrollY >= s.offsetTop - 160) cur = s.id; });
+  links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur));
+}
+window.addEventListener('scroll', setActive);
+window.addEventListener('load', setActive);
+setActive();
+
+// ── 모바일 햄버거 ────────────────────────────────────────────
+document.getElementById('ham').addEventListener('click',()=>{
+  document.getElementById('gnav').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('gnav').classList.remove('open'));
+});
+</script>
+</body>
+</html>

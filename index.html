@@ -206,13 +206,22 @@ const DATA = {
       sub:    "2D 횡스크롤 플랫포머 어드밴처(모바일)",
       link:   "https://youtu.be/9Y8hF94ClQc",
       period: "2017.07 — 2017.12",
-      desc:   `&nbsp기획자 1명, 그래픽 디자이너 4명, 프로그래머 1명으로 구성된 팀의 작업물입니다.<br>
-프로그래밍 부분은 전적으로 혼자 진행하였으며 케릭터 (조이패드 이동 및 공격, 점프, 구르기 등), 몬스터, 다양한 함정, 스킬 시스템, 업적 시스템, <br>
-UGUI를 이용한 UI 구성, 로딩 씬 등을 구현하였고, 각종 매니저 (ObjectPool, SoundManager, Attack Box Colider Maker, Buff, Particle 등)를 구현하였습니다.<br>
-애니메이션은 <b>Spine</b>을 이용하여 제작하였습니다. <br>
-간단해 보이는 <b>2D 횡스크롤 플랫포머 게임</b>이지만 기본적인 RPG적인 요소가 가미되어 있어 <b>RPG게임</b>의 전투 시스템을 포함하고 있습니다.<br>
-Json을 이용한 파일 입출력으로 게임 데이터 저장, 텍스트의 Language Localization, 스킬의 수치 등을 조절할 수 있게 구현하였습니다. (JsonUtility 사용)<br>
-총 1-6 스테이지 구성 및 첫 스테이지 보스까지 구현 하였고 <b>APK 빌드까지 완료</b>하였습니다.<br>`,
+      desc:   `<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3730a3;flex-shrink:0;"></span>팀 구성</span><br>
+기획자 1명 / 그래픽 디자이너 4명 / 프로그래머 1명 &nbsp;|&nbsp; 담당 역할: <b>프로그래밍 전반 단독 담당</b><br>
+<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3730a3;flex-shrink:0;"></span>캐릭터 시스템</span><br>
+조이패드 기반 이동 / 공격, 점프, 구르기 등 액션 구현<br>
+<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3730a3;flex-shrink:0;"></span>전투 및 게임 요소</span><br>
+몬스터 AI 및 다양한 함정 구현 / <b>RPG</b> 요소가 결합된 전투 시스템 구현 / 스킬 시스템 및 업적 시스템 구현<br>
+<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3730a3;flex-shrink:0;"></span>UI</span><br>
+UGUI 기반 게임 UI 구성 / 로딩 씬 구현<br>
+<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3730a3;flex-shrink:0;"></span>매니저 시스템</span><br>
+ObjectPool / SoundManager / Attack Box Collider Maker / Buff Manager / Particle Manager<br>
+<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3730a3;flex-shrink:0;"></span>애니메이션</span><br>
+<b>Spine</b>을 활용한 캐릭터 애니메이션 적용<br>
+<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3730a3;flex-shrink:0;"></span>데이터 관리</span><br>
+<b>JsonUtility</b> 기반 JSON 데이터 관리 시스템 구현 (게임 데이터 저장 / Language Localization / 스킬 수치 및 밸런스 데이터 관리)<br>
+<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3730a3;flex-shrink:0;"></span>개발 결과</span><br>
+총 1~6 스테이지 구현 / 1스테이지 보스 구현 / <b>Android APK 빌드 완료</b><br>`,
       env:    ["C#", "UGUI", "TextMesh Pro", "DOTween", "Spine"],
       tools:  ["Git", "UnityEngine", "Visual Studio"],
     },    

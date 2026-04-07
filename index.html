@@ -28,7 +28,8 @@ const DATA = {
   contact: {
     phone:    "010-4690-8035",
     email:    "doyouwany@email.com",
-    location: "서울특별시",    
+    location: "서울특별시",
+    military: "육군 병장 제대",
   },
 
   /* ── 학력사항 ── */
@@ -505,7 +506,8 @@ mc.innerHTML += `<section id="about">
   <div class="about-info">
     <div class="info-item"><label>Phone</label><span>${DATA.contact.phone}</span></div>
     <div class="info-item"><label>Email</label><span><a href="mailto:${DATA.contact.email}">${DATA.contact.email}</a></span></div>
-    <div class="info-item"><label>Location</label><span>${DATA.contact.location}</span></div>    
+    <div class="info-item"><label>Location</label><span>${DATA.contact.location}</span></div>
+    <div class="info-item"><label>병역</label><span>${DATA.contact.military}</span></div>
   </div>
 </section>`;
 

@@ -87,6 +87,7 @@ const DATA = {
         {
           title:   "킹덤스토리 (모바일 2D 수집형 RPG)",
           period:  "",
+          link:    "https://youtu.be/PM3sxfe_kJg?si=dVURKOdLC8SAPbsL",
           tasks:   [
             "라이브 서비스 진행 도중 입사하였으며 다양한 컨텐츠 및 UI 구현으로 시작",
             "신규 전투 스킬 구현, 팀 업무 효율 증대를 위한 툴 개선",
@@ -356,7 +357,8 @@ h2.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,4.5r
 .duration-badge{display:inline-block;padding:2px 8px;font-size:.78rem;font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;font-weight:500;background:rgba(55,48,163,.08);color:var(--accent);border:1px solid rgba(55,48,163,.18);border-radius:20px;vertical-align:middle}
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:24px 28px;margin-bottom:16px;box-shadow:0 1px 4px rgba(28,25,23,.07);transition:border-color .2s,transform .2s,box-shadow .2s}
 .project-card:hover{border-color:var(--accent);transform:translateX(4px);box-shadow:0 4px 16px rgba(28,25,23,.10)}
-.project-card h4{font-size:1.35rem;font-weight:700;color:var(--accent);margin-bottom:6px}
+.project-card h4{font-size:1.35rem;font-weight:700;color:var(--accent);margin-bottom:0}
+.exp-title-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
 .period-small{font-family:'Space Mono',monospace;font-size:.78rem;color:var(--muted);margin-bottom:16px}
 .task-label{font-size:.94rem;font-weight:600;letter-spacing:.3px;color:var(--accent);font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;margin:16px 0 8px;display:flex;align-items:center;gap:6px}
 .task-label::before{content:'';display:inline-block;width:3px;height:13px;background:var(--accent);border-radius:2px;flex-shrink:0}
@@ -420,6 +422,7 @@ h2.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,4.5r
 .ps-video-inner{overflow:hidden;min-height:0}
 .ps-video-frame{position:relative;width:100%;padding-top:56.25%}
 .ps-video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block}
+.project-card .ps-video-wrap.is-open{margin-top:12px;margin-bottom:18px;border-radius:6px}
 .ps-period{font-family:'Space Mono',monospace;font-size:.82rem;color:var(--accent);padding:16px 28px 0}
 .ps-body{padding:16px 28px 24px}
 .ps-body p{font-size:1.03rem;color:var(--sub);line-height:1.85;margin-bottom:20px}
@@ -597,8 +600,12 @@ mc.innerHTML += `<section id="experience">
     </div>
     ${co.projects.map(pj=>`
     <div class="project-card">
-      <h4>${pj.title}</h4>
+      <div class="exp-title-row">
+        <h4>${pj.title}</h4>
+        ${pj.link?`<button type="button" class="ps-link ps-video-toggle" data-yid="${getYoutubeId(pj.link)}">▶ 영상 보기</button>`:''}
+      </div>
       <div class="period-small">${pj.period}</div>
+      ${pj.link?`<div class="ps-video-wrap"><div class="ps-video-inner"><div class="ps-video-frame"></div></div></div>`:''}
       ${pj.tasks.length?`<div class="task-label">수행업무</div><ul class="task-list">${pj.tasks.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}
       ${pj.results.length?`<div class="task-label task-label--result">주요성과</div><ul class="task-list">${pj.results.map(r=>`<li>${r}</li>`).join('')}</ul>`:''}
       <div class="skill-tags">${pj.skills.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>
@@ -719,7 +726,7 @@ document.querySelectorAll('.nav-links a').forEach(a=>{
 document.addEventListener('click', (e)=>{
   const btn = e.target.closest('.ps-video-toggle');
   if(!btn) return;
-  const card  = btn.closest('.project-showcase');
+  const card  = btn.closest('.project-showcase, .project-card');
   const wrap  = card.querySelector('.ps-video-wrap');
   const frame = wrap.querySelector('.ps-video-frame');
   const isOpen = wrap.classList.contains('is-open');

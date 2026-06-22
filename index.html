@@ -77,6 +77,16 @@ const DATA = {
             "에오스 블랙 대만 런칭 완료",
           ],
           skills:  ["UnityEngine", "UGUI", "Jenkins", "SQLite"],
+          // images: 경력 카드에 표시할 스크린샷 목록. src에 GitHub raw 이미지 URL을 넣으세요.
+          // 예) "https://raw.githubusercontent.com/계정명/저장소명/main/screenshots/eos-1.png"
+          images: [
+            { src: "https://drive.google.com/file/d/1iCaf-sjBg8e_UMMZ__AQJZshUE8Ja5T3/view?usp=sharing", caption: "장비 UI" },
+            { src: "https://drive.google.com/file/d/1zB4El1q2THvx2pmdoMT2uDXLAvgSSKcJ/view?usp=sharing", caption: "NPC 상점" },            
+            { src: "https://drive.google.com/file/d/19M_kM3lammLfzs6zAaUCqXPfYL_OJjfx/view?usp=sharing", caption: "뽑기 연출" },
+            { src: "https://drive.google.com/file/d/13Wfi1h-sTKBnGEGan2vl_utQMznzWGfP/view?usp=sharing", caption: "Vertex 갯수 분포 확인" },
+            { src: "https://drive.google.com/file/d/17cETjQfXty_1jo327Bj_K1kEjzlBzt7A/view?usp=sharing", caption: "NavMesh와 충돌한 오브젝트 찾기" }
+            
+          ],
         },        
       ],
     },
@@ -96,6 +106,7 @@ const DATA = {
           ],
           results: [],
           skills:  ["UnityEngine", "NGUI", "Jenkins", "Python"],
+          images: [],
         },
       ],
     },    
@@ -112,6 +123,7 @@ const DATA = {
           ],
           results: [],
           skills:  ["UnityEngine", "NGUI", "Playmaker"],
+          images: [],
         },
       ],
     },
@@ -229,6 +241,10 @@ ObjectPool / SoundManager / Attack Box Collider Maker / Buff Manager / Particle 
 총 1~6 스테이지 구현 / 1스테이지 보스 구현 / <b>Android APK 빌드 완료</b><br>`,
       env:    ["C#", "UGUI", "TextMesh Pro", "DOTween", "Spine"],
       tools:  ["Git", "UnityEngine", "Visual Studio"],
+      // images: 팀 프로젝트 카드에 표시할 스크린샷 목록 (GitHub raw URL 사용)
+      images: [
+        // { src: "https://raw.githubusercontent.com/USERNAME/REPO/main/arnee-01.png", caption: "1스테이지 보스전" },
+      ],
     },    
     {
       title:  "진의 모험",
@@ -251,6 +267,7 @@ Raw File 및 Height Map 기반 Terrain 생성 / 지형 렌더링 및 맵 구성<
 Particle System 구현 / Billboard 기반 몬스터 체력바 구현 / 기본적인 UI 시스템 / 퀘스트 시스템 구현<br>`,
       env:    ["DirextX 3D"],
       tools:  ["SVN", "Visual Studio", "RenderMonkey"],
+      images: [],
     },    
   ],
 
@@ -370,6 +387,22 @@ h2.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,4.5r
 .skill-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .skill-tag{padding:3px 10px;font-size:.82rem;font-family:'Space Mono',monospace;border-radius:3px;background:rgba(55,48,163,.07);color:var(--accent);border:1px solid rgba(55,48,163,.18)}
 
+/* ── 스크린샷 갤러리 ── */
+.shot-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:16px}
+.shot-item{cursor:zoom-in}
+.shot-item figure{margin:0}
+.shot-item .shot-frame{position:relative;width:100%;padding-top:62%;border-radius:6px;overflow:hidden;border:1px solid var(--border);background:var(--surface2)}
+.shot-item .shot-frame img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
+.shot-item:hover .shot-frame img{transform:scale(1.04)}
+.shot-item figcaption{font-size:.8rem;color:var(--muted);margin-top:6px;line-height:1.4}
+
+/* ── 라이트박스 ── */
+.lightbox{position:fixed;inset:0;background:rgba(12,10,9,.88);display:none;align-items:center;justify-content:center;z-index:999;padding:40px;flex-direction:column;gap:14px}
+.lightbox.is-open{display:flex}
+.lightbox img{max-width:min(90vw,1100px);max-height:78vh;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lightbox figcaption{color:#f5f3f0;font-size:.92rem;text-align:center;max-width:80vw}
+.lightbox-close{position:absolute;top:20px;right:28px;color:#f5f3f0;font-size:2rem;line-height:1;cursor:pointer;background:none;border:none}
+
 /* ── 자격증 ── */
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .cert-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px 24px;transition:border-color .2s}
@@ -475,6 +508,7 @@ h2.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,4.5r
   .tl-date{text-align:left}
   .ps-meta{grid-template-columns:1fr}
   .hobbies-grid{grid-template-columns:1fr 1fr}
+  .shot-gallery{grid-template-columns:repeat(2,1fr)}
 }
 </style>`);
 
@@ -508,7 +542,13 @@ document.body.innerHTML = `
   </div>
 </nav>
 
-<main id="mc"></main>`;
+<main id="mc"></main>
+
+<div class="lightbox" id="lightbox">
+  <button type="button" class="lightbox-close" id="lightboxClose">&times;</button>
+  <img id="lightboxImg" src="" alt="" />
+  <figcaption id="lightboxCaption"></figcaption>
+</div>`;
 
 const mc = document.getElementById('mc');
 
@@ -608,6 +648,7 @@ mc.innerHTML += `<section id="experience">
       ${pj.link?`<div class="ps-video-wrap"><div class="ps-video-inner"><div class="ps-video-frame"></div></div></div>`:''}
       ${pj.tasks.length?`<div class="task-label">수행업무</div><ul class="task-list">${pj.tasks.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}
       ${pj.results.length?`<div class="task-label task-label--result">주요성과</div><ul class="task-list">${pj.results.map(r=>`<li>${r}</li>`).join('')}</ul>`:''}
+      ${renderGallery(pj.images)}
       <div class="skill-tags">${pj.skills.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>
     </div>`).join('')}
   </div>`).join('')}
@@ -635,6 +676,20 @@ function getYoutubeId(url){
   return m ? m[1] : '';
 }
 
+// ── 스크린샷 갤러리 렌더링 헬퍼 ──────────────────────────────────
+function renderGallery(images){
+  if(!images || !images.length) return '';
+  return `<div class="shot-gallery">
+    ${images.map((img,i)=>`
+    <div class="shot-item" data-src="${img.src}" data-caption="${(img.caption||'').replace(/"/g,'&quot;')}">
+      <figure>
+        <div class="shot-frame"><img src="${img.src}" alt="${(img.caption||'스크린샷 '+(i+1)).replace(/"/g,'&quot;')}" loading="lazy"/></div>
+        ${img.caption?`<figcaption>${img.caption}</figcaption>`:''}
+      </figure>
+    </div>`).join('')}
+  </div>`;
+}
+
 // 05 PROJECTS
 mc.innerHTML += `<section id="projects">
   <h2 class="sec-title">팀 프로젝트</h2>
@@ -651,6 +706,7 @@ mc.innerHTML += `<section id="projects">
     <div class="ps-period">${p.period}&nbsp;&nbsp;<span class="duration-badge">${calcDuration(p.period)}</span></div>
     <div class="ps-body">
       <p>${p.desc}</p>
+      ${renderGallery(p.images)}
       <div class="ps-meta">
         <div class="ps-meta-block"><h5>개발환경</h5><div class="tag-list">${p.env.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>
         <div class="ps-meta-block"><h5>도구 및 API</h5><div class="tag-list">${p.tools.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>
@@ -722,7 +778,36 @@ document.querySelectorAll('.nav-links a').forEach(a=>{
   a.addEventListener('click',()=>document.getElementById('gnav').classList.remove('open'));
 });
 
-// ── 프로젝트 영상 토글 (열기/접기) ───────────────────────────────────
+// ── 스크린샷 라이트박스 ──────────────────────────────────────────
+const lightbox        = document.getElementById('lightbox');
+const lightboxImg      = document.getElementById('lightboxImg');
+const lightboxCaption  = document.getElementById('lightboxCaption');
+
+function openLightbox(src, caption){
+  lightboxImg.src = src;
+  lightboxImg.alt = caption || '';
+  lightboxCaption.textContent = caption || '';
+  lightbox.classList.add('is-open');
+}
+function closeLightbox(){
+  lightbox.classList.remove('is-open');
+  lightboxImg.src = '';
+}
+
+document.addEventListener('click', (e)=>{
+  const shot = e.target.closest('.shot-item');
+  if(shot){
+    openLightbox(shot.dataset.src, shot.dataset.caption);
+    return;
+  }
+  if(e.target === lightbox || e.target.id === 'lightboxClose'){
+    closeLightbox();
+  }
+});
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape') closeLightbox();
+});
+
 document.addEventListener('click', (e)=>{
   const btn = e.target.closest('.ps-video-toggle');
   if(!btn) return;
